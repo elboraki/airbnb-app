@@ -23,7 +23,13 @@
       </ul>
       <% if (user_signed_in?) %>
         <ul class="nav navbar-nav navbar-right">
-          <li class="active"><a href="./">Default <span class="sr-only"><%= current_user.email %></span></a></li>
+          <li class="active">
+            <a href="./">
+              <% if current_user %>
+                <span class="text-primary"><%= current_user.fullname %></span>
+              <% end %>
+            </a>
+          </li>
           <li>
             <%= link_to 'edit profil', edit_user_registration_path %>
           </li>
